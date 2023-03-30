@@ -1,0 +1,51 @@
+ <!DOCTYPE html!>
+<html>
+<head>
+<meta charset="utf-8">
+
+<title> Паджик 7.33e с момчиком</title>
+</head>
+<body>
+
+<style>
+body {
+
+background-color: gray;
+}
+
+ h1 {
+color: red;
+background-color : black;
+boarder 10px blue;
+}
+</style> 
+<h1><center> Dota 2</center></h1>
+<h4> <img src="C:\Users\AdminKSU\Desktop\pudge\1.jpg" ></h4>
+ 
+<ul id="demo">
+
+            </ul>
+<script>
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+            function myFunction() {
+                (async () => {
+                    let response = await fetch('https://kav-api.kovalev.team/servodrive/lastActualData?servoDriveId=1');
+                    let el = document.getElementById('demo')
+                    el.innerHTML = ""
+                    let text = await response.text(); // прочитать тело ответа как текст
+                    for (const [key, value] of Object.entries(JSON.parse(text)[0])) {
+                        const newEl = document.createElement("li")
+                        newEl.appendChild(document.createTextNode(`${key}: ${value}`))
+                        el.appendChild(newEl)
+                        await sleep(100)
+                    }
+                })()
+            }
+        </script>
+
+  <button class="btn" onclick="myFunction()" "button style="font-size : 100px; width: 70%; height: 200px; color: black; background-color : white;"> ВЫБРАТЬ PUDGE <img src="C:\Users\AdminKSU\Desktop\pudge\pudge-troll-pudge-emoji.gif" alt="Иконка" width="150" height="150"</style> </button> 
+
+</body>
+</html>
